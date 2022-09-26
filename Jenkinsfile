@@ -8,7 +8,7 @@ pipeline {
                 sh "terraform init"
                 
             }
-      
+        }
         stage('Get List of EC2 Instances') {
             steps {
                 sh "cd terraform"
@@ -20,5 +20,4 @@ pipeline {
                 
             }
         }
-    }
 }
