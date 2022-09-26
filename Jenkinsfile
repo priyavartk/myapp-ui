@@ -17,13 +17,21 @@ pipeline {
     }
     stage('Terraform Plan') {
       steps {
+        dir("${env.WORKSPACE}/terraform")
+        {
+          sh "pwd"
+        }
         sh "terraform plan -out=tfplan -input=false -var-file='dev.tfvars'"
       }
     }
     stage('Terraform Apply') {
       steps {
+        dir("${env.WORKSPACE}/terraform")
+        {
+          sh "pwd"
+        }
         input 'Apply Plan'
-        sh "terraform apply -input=false tfplan"
+        sh "terraform apply -input=false tfplan -var-file='dev.tfvars'"
       }
     }
   }
