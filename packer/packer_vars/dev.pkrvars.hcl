@@ -1,0 +1,7 @@
+service_name = "example"
+env = "dev"
+skip_create_ami = "false"
+instance_type = "t3.large"
+region = "us-east-1"
+source_ami = "ami-0c1a7f89451184c8b"
+ssh_username = "ubuntu"

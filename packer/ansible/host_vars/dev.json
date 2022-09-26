@@ -1,0 +1,8 @@
+{
+    "env": "dev",
+    "organization": "example",
+    "repo_name": "repo_name",
+    "release_branch": "master",
+    "github_user": "${DEVOPS_GITHUB_USER}",
+    "github_token": "${DEVOPS_GITHUB_TOKEN}"
+}
