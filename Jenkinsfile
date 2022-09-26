@@ -26,7 +26,7 @@ pipeline {
      steps {
        sh '''
                    cd terraform
-                   terraform apply -var-file=vars.tfvars
+                   terraform apply -auto-approve -var-file=vars.tfvars
                 '''
       }
     }
