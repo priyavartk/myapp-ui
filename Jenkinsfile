@@ -17,7 +17,7 @@ pipeline {
                 echo 'Deploying....'
                 filelist="git diff --name-only $GIT_PREVIOUS_COMMIT $GIT_COMMIT"
                 echo ${filelist}
-                echo "testing webhook"
+                echo "testing webhook test"
             }
         }
     }
