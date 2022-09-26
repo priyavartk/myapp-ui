@@ -1,7 +1,0 @@
-- name: Clone Repo
-  git:
-    repo: 'https://{{ github_user | urlencode }}:{{ github_token }}@github.com/{{ organization }}/{{ repo_name }}.git'
-    dest: /home/{{ ansible_user }}/{{ repo_name }}
-    version: "{{ release_branch }}"
-    clone: yes
-    update: yes

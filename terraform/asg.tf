@@ -31,6 +31,8 @@ resource "aws_launch_template" "web" {
   image_id               = var.ami_id
   instance_type          = var.instance_type
   vpc_security_group_ids = ["${aws_security_group.web.id}"]
+  key_name = var.key_name
+  user_data = filebase64("script.sh")
 
   iam_instance_profile {
     arn = aws_iam_instance_profile.iam_instance_profile.arn

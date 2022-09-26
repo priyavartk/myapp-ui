@@ -6,14 +6,16 @@ resource "aws_security_group" "web" {
     from_port   = var.ssh_port
     to_port     = var.ssh_port
     protocol    = "tcp"
-    cidr_blocks = ["${data.aws_vpc.selected.cidr_block}"]
+#    cidr_blocks = ["${data.aws_vpc.selected.cidr_block}"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port   = var.backend_port
     to_port     = var.backend_port
     protocol    = "tcp"
-    cidr_blocks = ["${data.aws_vpc.selected.cidr_block}"]
+#    cidr_blocks = ["${data.aws_vpc.selected.cidr_block}"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -35,8 +37,8 @@ resource "aws_security_group" "public" {
   vpc_id      = var.vpc_id
 
   ingress {
-    from_port   = var.https_port
-    to_port     = var.https_port
+    from_port   = var.http_port
+    to_port     = var.http_port
     protocol    = "tcp"
     cidr_blocks = ["${var.public_cidr}"]
   }

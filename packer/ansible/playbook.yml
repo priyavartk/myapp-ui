@@ -1,7 +1,0 @@
----
-- name: Setup Application
-  hosts: all
-  gather_facts: true
-
-  roles:
-    - clone-repos

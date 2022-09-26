@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS Region Name"
   type        = string
-  default     = "us-east-1"
+  default     = "us-west-1"
 }
 
 variable "aws_region_short" {
@@ -31,7 +31,7 @@ variable "env" {
 variable "backend_port" {
   description = "port number of backend service"
   type        = string
-  default     = "8080"
+  default     = "80"
 }
 
 variable "public_cidr" {
@@ -91,29 +91,12 @@ variable "http_port" {
   default     = "80"
 }
 
-variable "https_port" {
-  description = "HTTPS Port"
-  type        = string
-  default     = "443"
-}
-
-variable "certificate_arn" {
-  description = "Certificate ARN"
-  type        = string
-}
-
-variable "hosted_zone_id" {
-  description = "Hosted zone id"
-  type        = string
-}
-
-variable "hosted_zone_type" {
-  description = "Hosted zone type"
-  type        = string
-}
-
 variable "health_check_endpoint" {
   description = "Health Check Endpoint"
   type        = string
-  default     = "/health"
+  default     = "/"
+}
+variable "key_name" {
+   description ="ssh key name"
+   type = string
 }

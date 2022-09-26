@@ -15,7 +15,7 @@ resource "aws_alb" "web" {
   security_groups    = [aws_security_group.public.id]
   subnets            = var.subnets
 
-  enable_deletion_protection = true
+  enable_deletion_protection = false
 
   tags = {
     Name = "web-alb-${var.env}-${var.aws_region_short}"
@@ -25,11 +25,8 @@ resource "aws_alb" "web" {
 
 resource "aws_alb_listener" "web" {
   load_balancer_arn = aws_alb.web.arn
-  port              = var.https_port
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = var.certificate_arn
-
+  port              = var.http_port
+  protocol          = "HTTP"
   default_action {
     type             = "forward"
     target_group_arn = aws_alb_target_group.web.arn
