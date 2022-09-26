@@ -12,9 +12,10 @@ pipeline {
                        script: "aws ec2 describe-instances --filters Name=tag:Env,Values=dev --region us-west-1 --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text --region us-west-1",
                        returnStdout: true
                     ).trim()
-                    echo "${instanceIP}"
-                    sshagent(credentials : ['instance-credentials']) {
-                    sh "scp -r static/* ubuntu@${instanceIP}:/var/www/html"
+                        echo "${instanceIP}"
+                        sshagent(credentials : ['instance-credentials']) {
+                        sh "scp -r static/* ubuntu@${instanceIP}:/var/www/html"
+                    }
                     }
                 }
             }  
