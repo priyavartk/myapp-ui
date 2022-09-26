@@ -18,7 +18,7 @@ pipeline {
       steps {
        sh '''
                    cd terraform
-                   terraform plan -var-file='dev.tfvars
+                   terraform plan -var-file=dev.tfvars
                 '''
       }
     }
@@ -26,7 +26,7 @@ pipeline {
      steps {
        sh '''
                    cd terraform
-                   terraform apply -var-file='dev.tfvars
+                   terraform apply -var-file=dev.tfvars
                 '''
       }
     }
