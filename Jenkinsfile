@@ -2,15 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Init') {
             steps {
-                echo 'Building..'
+                sh "cd terraform"
+                sh "terraform init"
+                
             }
         }
         stage('Get List of EC2 Instances') {
             steps {
-                sh "aws ec2 describe-instances --filters Name=tag:app,Values=web --region eu-west-1"
-            }
+                sh "cd terraform"
+                sh "terraform apply"
         }
         stage('Deploy') {
             steps {
