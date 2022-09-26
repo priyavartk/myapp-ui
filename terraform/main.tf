@@ -4,8 +4,10 @@ provider "aws" {
 
 
 terraform {
-  backend "local" {
-    path = "/tmp/terraform.tfstate"
+  backend "s3" {
+    bucket = "saas-logging-terraform"
+    key = "terraform-ps.0"
+    region = "us-west-1"
   }
 
   required_providers {
