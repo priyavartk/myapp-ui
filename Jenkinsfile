@@ -30,7 +30,6 @@ pipeline {
         {
           sh "pwd"
         }
-        input 'Apply Plan'
         sh "terraform apply -input=false tfplan -var-file='dev.tfvars'"
       }
     }
