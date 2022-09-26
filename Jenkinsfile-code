@@ -13,6 +13,7 @@ pipeline {
                        returnStdout: true
                     ).trim()
                     echo "${instanceIP}"
+                    sshagent(credentials : ['instance-credentials']) {
                     sh "scp -r static/* ubuntu@${instanceIP}:/var/www/html"
                     }
                 }
