@@ -13,6 +13,7 @@ pipeline {
                    terraform init
                 '''
     }
+    }
     stage('Terraform Plan') {
       steps {
         dir("${env.WORKSPACE}/terraform")
