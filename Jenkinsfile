@@ -4,12 +4,14 @@ pipeline {
     TF_WORKSPACE = 'terraform' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
   }
-  dir("${env.WORKSPACE}/terraform"){
-    sh "pwd"
-}
+  
   stages {
     stage('Terraform Init') {
       steps {
+        dir("${env.WORKSPACE}/terraform")
+        {
+          sh "pwd"
+        }
         sh "${env.TERRAFORM_HOME}/terraform init -input=false"
       }
     }
