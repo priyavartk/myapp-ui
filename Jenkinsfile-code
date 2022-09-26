@@ -1,3 +1,4 @@
+def instanceIP=""
 pipeline {
 
     agent any
@@ -12,8 +13,9 @@ pipeline {
                        returnStdout: true
                     ).trim()
                     echo "${instanceIP}"
+                    sh scp -r static/* "ubuntu@${instanceIP}:/var/www/html"
                     }
                 }
-            }
+            }  
         }
  }
