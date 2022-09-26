@@ -12,7 +12,7 @@ pipeline {
                    cd terraform
                    terraform init
                 '''
-    }
+      }
     }
     stage('Terraform Plan') {
       steps {
