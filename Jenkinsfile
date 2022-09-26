@@ -5,14 +5,14 @@ pipeline {
         stage('Init') {
             steps {
                 sh "cd terraform"
-                sh "terraform init"
-                
+                sh "terraform init"     
             }
         }
         stage('Get List of EC2 Instances') {
             steps {
                 sh "cd terraform"
                 sh "terraform apply"
+        }
         }
         stage('Deploy') {
             steps {
