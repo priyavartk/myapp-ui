@@ -7,15 +7,15 @@ pipeline {
                 echo 'Building..'
             }
         }
-        stage('Test') {
+        stage('Get List of EC2 Instances') {
             steps {
-                echo 'Testing..'
+                sh "aws ec2 describe-snapshots --filters Name=app,Values=web"
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                filelist="git diff --name-only $GIT_PREVIOUS_COMMIT $GIT_COMMIT"
+                
             }
         }
     }
