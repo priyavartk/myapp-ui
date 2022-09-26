@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Get List of EC2 Instances') {
             steps {
-                sh "aws ec2 describe-snapshots --filters Name=app,Values=web --region eu-west-1"
+                sh "aws ec2 describe-instances --filters Name=app,Values=web --region eu-west-1"
             }
         }
         stage('Deploy') {
