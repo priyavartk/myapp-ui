@@ -5,7 +5,7 @@ pipeline {
     stages{
         stage('aws') {
             steps {
-                script{
+                script {
                     /*extract IP of the instance*/
                     instanceIP = sh (
                        script: "aws ec2 describe-instances --filters Name=tag:Env,Values=dev --region us-west-1 --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text --region us-east-1",
@@ -15,4 +15,4 @@ pipeline {
                 }
             }
         }
- 
+ }
