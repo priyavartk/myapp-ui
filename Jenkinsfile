@@ -8,12 +8,10 @@ pipeline {
   stages {
     stage('Terraform Init') {
       steps {
-        dir("${env.WORKSPACE}/terraform")
-        {
-          sh "pwd"
-        }
-        sh "terraform init -input=false"
-      }
+       sh '''
+                   cd terraform
+                   terraform init
+                '''
     }
     stage('Terraform Plan') {
       steps {
